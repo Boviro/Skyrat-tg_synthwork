@@ -37,7 +37,7 @@
 	old_stomach.Remove(human_holder, special = TRUE)
 	qdel(old_stomach)
 	if(issynthetic(human_holder))
-		var/obj/item/organ/internal/stomach/synth/oversized/new_synth_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE reactor! RIP AND TEAR YOUR HUGE reactor!
+		var/obj/item/organ/internal/stomach/robotic/synth/oversized/new_synth_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE reactor! RIP AND TEAR YOUR HUGE reactor!
 		new_synth_stomach.Insert(human_holder, special = TRUE)
 		to_chat(human_holder, span_warning("You feel your massive engine rumble!"))
 	else
@@ -94,7 +94,7 @@
 	else if(istype(gained, /obj/item/bodypart/leg))
 		var/obj/item/bodypart/leg/new_leg = gained
 		new_leg.unarmed_effectiveness = initial(new_leg.unarmed_effectiveness) + OVERSIZED_KICK_EFFECTIVENESS_BONUS
-	
+
 	gained.name = "oversized " + gained.name
 
 /datum/movespeed_modifier/oversized

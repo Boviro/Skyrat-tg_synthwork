@@ -1,4 +1,4 @@
-/obj/item/organ/internal/stomach/synth
+/obj/item/organ/internal/stomach/robotic/synth
 	name = "synthetic bio-reactor"
 	icon = 'modular_skyrat/master_files/icons/obj/surgery.dmi'
 	icon_state = "stomach-ipc"
@@ -11,7 +11,7 @@
 	desc = "A specialised mini reactor, for synthetic use only. Has a low-power mode to ensure baseline functions. Without this, synthetics are unable to stay powered."
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES
 
-/obj/item/organ/internal/stomach/synth/emp_act(severity)
+/obj/item/organ/internal/stomach/robotic/synth/emp_act(severity)
 	. = ..()
 
 	if(!owner || . & EMP_PROTECT_SELF)
@@ -41,22 +41,22 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/organ/internal/stomach/synth
+	build_path = /obj/item/organ/internal/stomach/robotic/synth
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_1
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
 
-/obj/item/organ/internal/stomach/synth/Insert(mob/living/carbon/receiver, special, movement_flags)
+/obj/item/organ/internal/stomach/robotic/synth/Insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
 	RegisterSignal(receiver, COMSIG_PROCESS_BORGCHARGER_OCCUPANT, PROC_REF(on_borg_charge))
 
-/obj/item/organ/internal/stomach/synth/Remove(mob/living/carbon/stomach_owner, special)
+/obj/item/organ/internal/stomach/robotic/synth/Remove(mob/living/carbon/stomach_owner, special)
 	. = ..()
 	UnregisterSignal(stomach_owner, COMSIG_PROCESS_BORGCHARGER_OCCUPANT)
 
 ///Handles charging the synth from borg chargers
-/obj/item/organ/internal/stomach/synth/proc/on_borg_charge(datum/source, amount)
+/obj/item/organ/internal/stomach/robotic/synth/proc/on_borg_charge(datum/source, amount)
 	SIGNAL_HANDLER
 
 	if(owner.nutrition >= NUTRITION_LEVEL_ALMOST_FULL)

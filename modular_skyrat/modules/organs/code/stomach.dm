@@ -6,7 +6,7 @@
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	metabolism_efficiency = 0.07
 
-/obj/item/organ/internal/stomach/synth/oversized
+/obj/item/organ/internal/stomach/robotic/synth/oversized
 	name = "huge synthetic bio-reactor"
 	desc = "Typically found in huge synthetics, this monstrous engine has been developed to be highly efficient, made to provide an enormous amount of power to an enormous machine."
 	icon = 'modular_skyrat/modules/organs/icons/stomach.dmi'
